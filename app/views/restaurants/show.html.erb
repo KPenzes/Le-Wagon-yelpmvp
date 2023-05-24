@@ -3,3 +3,14 @@
 <p>Type of cuisine: <%= @restaurant.category %></p>
 
 <%= link_to 'Back to restaurants', restaurants_path %>
+
+<%= link_to 'Leave a new review', new_restaurant_review_path(@restaurant) %>
+
+<h3>Reviews for <%= @restaurant.name %></h3>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= "⭐" * review.rating %> <br>
+    <%= review.content %>
+    </li>
+  <% end %>
+</ul>
